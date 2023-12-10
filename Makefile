@@ -20,4 +20,4 @@ repo:
 	flatpak-builder --repo=repo --force-clean build-dir org.flatpak.Hello.yml
 
 run: install
-	flatpak run org.flatpak.Hello
+	flatpak run org.flatpak.Hello passed-arg-foo
