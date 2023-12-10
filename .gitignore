@@ -3,3 +3,6 @@
 
 # Target for the build
 build-dir/
+
+# Target for the repo
+repo/
