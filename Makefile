@@ -27,4 +27,5 @@ repo:
 	flatpak-builder --repo=$(REPO) --force-clean $(BUILD_DIR) $(MANIFEST)
 
 run: install
-	flatpak run --filesystem=$(PWD)/input.txt org.flatpak.Hello input.txt
+	flatpak run --filesystem=$(PWD)/input.txt:ro \\
+		org.flatpak.Hello input.txt
