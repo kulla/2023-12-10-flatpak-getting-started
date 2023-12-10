@@ -1,3 +1,5 @@
+.PHONY: build help install repo run
+
 default: help
 
 build:
