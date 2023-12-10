@@ -7,5 +7,10 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
+echo ""
 echo "Reading file $1"
 cat $1
+
+echo ""
+echo "Output a file output.txt"
+echo Hello World > output.txt

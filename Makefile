@@ -7,6 +7,9 @@ PWD=$(shell pwd)
 
 default: help
 
+output.txt:
+	touch $@
+
 build:
 	flatpak-builder --force-clean $(BUILD_DIR) $(MANIFEST)
 
@@ -26,6 +29,7 @@ install:
 repo:
 	flatpak-builder --repo=$(REPO) --force-clean $(BUILD_DIR) $(MANIFEST)
 
-run: install
-	flatpak run --filesystem=$(PWD)/input.txt:ro \\
+run: install output.txt
+	flatpak run --filesystem=$(PWD)/input.txt:ro \
+		--filesystem=$(PWD)/output.txt \
 		org.flatpak.Hello input.txt

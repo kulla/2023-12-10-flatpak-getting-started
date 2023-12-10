@@ -6,3 +6,6 @@ build-dir/
 
 # Target for the repo
 repo/
+
+# Target for an example output file
+output.txt
