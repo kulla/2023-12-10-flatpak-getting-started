@@ -1,0 +1,5 @@
+# Cache for flatpak-builder
+.flatpak-builder/
+
+# Target for the build
+build-dir/
