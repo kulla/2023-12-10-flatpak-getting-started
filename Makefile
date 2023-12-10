@@ -1,9 +1,13 @@
 .PHONY: build help install repo run
 
+MANIFEST=org.flatpak.Hello.yml
+BUILD_DIR=build-dir
+REPO=repo
+
 default: help
 
 build:
-	flatpak-builder --force-clean build-dir org.flatpak.Hello.yml
+	flatpak-builder --force-clean $(BUILD_DIR) $(MANIFEST)
 
 help:
 	@echo "Usage: make [command]"
@@ -16,10 +20,10 @@ help:
 	@echo "run     – Run the installed flatpak"
 
 install:
-	flatpak-builder --user --install --force-clean build-dir org.flatpak.Hello.yml
+	flatpak-builder --user --install --force-clean $(BUILD_DIR) $(MANIFEST)
 
 repo:
-	flatpak-builder --repo=repo --force-clean build-dir org.flatpak.Hello.yml
+	flatpak-builder --repo=$(REPO) --force-clean $(BUILD_DIR) $(MANIFEST)
 
 run: install
 	flatpak run org.flatpak.Hello passed-arg-foo
