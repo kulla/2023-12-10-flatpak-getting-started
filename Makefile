@@ -3,6 +3,7 @@
 MANIFEST=org.flatpak.Hello.yml
 BUILD_DIR=build-dir
 REPO=repo
+PWD=$(shell pwd)
 
 default: help
 
@@ -26,4 +27,4 @@ repo:
 	flatpak-builder --repo=$(REPO) --force-clean $(BUILD_DIR) $(MANIFEST)
 
 run: install
-	flatpak run org.flatpak.Hello passed-arg-foo
+	flatpak run --filesystem=$(PWD)/input.txt org.flatpak.Hello input.txt
